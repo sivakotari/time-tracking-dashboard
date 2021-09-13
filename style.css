@@ -1,0 +1,237 @@
+:root {
+    --font-family: 'Rubik', sans-serif;
+    --fw-light: 300;
+    --fw-medium: 400;
+    --fw-bold: 500;
+
+    --blue: hsl(246, 80%, 60%);
+    --blue-saturated: hsl(236deg 41% 34%);
+    --light-red-work: hsl(15, 100%, 70%);
+    --soft-blue-play: hsl(195, 74%, 62%);
+    --light-red-study: hsl(348, 100%, 68%);
+    --lime-green-exercise: hsl(145, 58%, 55%);
+    --violet-social: hsl(264, 64%, 52%);
+    --soft-orange-self-care: hsl(43, 84%, 65%);
+
+    --very-dark-blue: hsl(226, 43%, 10%);
+    --dark-blue: hsl(235, 46%, 20%);
+    --desaturated-blue: hsl(235, 45%, 61%);
+    --pale-blue: hsl(236, 100%, 87%);
+
+    --white: #fff;
+}
+
+/* rest default */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var(--font-family);
+    background-color: var(--very-dark-blue);
+    font-weight: var(--fw-light);
+}
+
+/* generic classes */
+.flex {
+    display: flex;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+
+/* class based styles */
+.app {
+    height: 100%;
+    max-width: 1440px;
+    margin: 50px auto 0;
+    justify-content: center;
+}
+.attribution {
+    color: var(--white);
+}
+.card {
+    color: var(--white);
+    background-color: var(--dark-blue);
+    border-radius: 12px;
+    margin: 15px;
+}
+.profile {
+    max-width: 250px;
+    max-height: 430px;
+    flex: 0 0 200px;
+}
+.profile__wrapper {
+    background-color: var(--blue);
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+.profile__pic {
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    margin-bottom: 30px;
+}
+.profile__name {
+    margin-bottom: 40px;
+}
+.profile__name h1{
+    font-weight: var(--fw-light);
+}
+.caption {
+    color: var(--pale-blue);
+    font-size: 12px;
+    font-weight: var(--fw-bold);
+    margin-bottom: 5px;
+}
+.title {
+    font-size: 14px;
+    font-weight: var(--fw-bold);
+    margin-bottom: 20px;
+}
+.action__items {
+    list-style: none;
+    color: var(--desaturated-blue);
+    text-transform: capitalize;
+    font-size: 15px;
+}
+.action__items li{
+    cursor: pointer;
+}
+.action__items li:hover{
+    color: var(--white);
+}
+.action__items li:not(:last-child){
+    margin-bottom: 20px;
+}
+.active {
+    color: var(--white);
+}
+.cards {
+    max-width: 48%;
+    flex: 1 1 230px;
+}
+.card__wrapper {
+    position: relative;
+    border-radius: 12px 12px 15px  15px;
+    display: flex;
+    align-items: end;
+    flex: 1 1 200px;
+}
+.card__widget {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--dark-blue);
+    border-radius: 12px;
+    margin-top: 34px;
+}
+.card__widget:hover {
+    background-color: var(--blue-saturated);
+
+}
+.card__widget::after {
+    content: '';
+    position: absolute;
+    background: url(./images/icon-ellipsis.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: not-allowed;
+    height: 10px;
+    width: 15px;
+    right: 25px;
+    top: 30px;
+}
+.card__widget, .profile__wrapper, .action__items {
+    padding: 25px;
+}
+.current__count {
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+.previous__count {
+    color: var(--pale-blue);
+    font-size: 12px;
+    font-weight: var(--fw-medium);
+}
+
+/* cards background */
+[data-action-widget] {
+    background-repeat: no-repeat;
+    background-size: 50px auto;
+    background-position: top -5px right 20px;
+}
+[data-action-widget="Work"] {
+    background-image: url(./images/icon-work.svg);
+    background-color: var(--light-red-work);
+}
+[data-action-widget="Play"] {
+    background-image: url(./images/icon-play.svg);
+    background-color: var(--soft-blue-play);
+}
+[data-action-widget="Study"] {
+    background-image: url(./images/icon-study.svg);
+    background-color: var(--light-red-study);
+}
+[data-action-widget="Exercise"] {
+    background-image: url(./images/icon-exercise.svg);
+    background-color: var(--lime-green-exercise);
+}
+[data-action-widget="Social"] {
+    background-image: url(./images/icon-social.svg);
+    background-color: var(--violet-social);
+}
+[data-action-widget="Self"] {
+    background-image: url(./images/icon-self-care.svg);
+    background-color: var(--soft-orange-self-care);
+}
+
+/* mobile styles */
+@media only screen and (max-width: 375px) {
+    .app {
+        flex-direction: column;
+    }
+    .cards, .profile {
+        max-width: 100%;
+    }
+    .card {
+        margin: 10px 20px;
+    }
+    .action__items {
+        display: flex;
+        justify-content: space-between;
+    }
+    .action__items li {
+        margin: 0 !important;
+    }
+    .stats {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .previous__count {
+        margin-left: 20px;
+    }
+    .profile {
+        flex: 0 0 auto;
+    }
+    .profile__pic, .profile__name {
+        margin-bottom: 0;
+    }
+    .profile__name {
+        margin-left: 20px;
+    }
+    .profile__wrapper {
+        display: flex;
+        align-items: center;
+    }
+    .profile__name h1 {
+        font-size: 18px;
+    }
+    .current__count {
+        margin: 0;
+        font-size: 25px;
+    }
+    .title {
+        margin-bottom: 5px;
+    }
+}
