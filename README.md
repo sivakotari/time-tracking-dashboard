@@ -1,4 +1,8 @@
+![ss-desktop](https://user-images.githubusercontent.com/19163868/133071376-47beb07a-74a4-4581-814d-eea9f24b9238.png)
+![ss-mobile](https://user-images.githubusercontent.com/19163868/133071388-37023e9e-c068-4725-a31d-96729f07af86.png)
 # Frontend Mentor - Time tracking dashboard
+
+
 
 ![Design preview for the Time tracking dashboard coding challenge](./design/desktop-preview.jpg)
 
