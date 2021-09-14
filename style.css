@@ -39,12 +39,21 @@ body {
 .wrap {
     flex-wrap: wrap;
 }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+}
 
 /* class based styles */
 .app {
     height: 100%;
     max-width: 1440px;
-    margin: 50px auto 0;
+    margin: 20px auto 0;
     justify-content: center;
 }
 .attribution {
@@ -57,9 +66,9 @@ body {
     margin: 15px;
 }
 .profile {
-    max-width: 250px;
-    max-height: 430px;
-    flex: 0 0 200px;
+    /* max-width: 250px; */
+    max-height: 490px;
+    flex: 0 0 250px;
 }
 .profile__wrapper {
     background-color: var(--blue);
@@ -76,6 +85,7 @@ body {
 }
 .profile__name h1{
     font-weight: var(--fw-light);
+    font-size: 40px;
 }
 .caption {
     color: var(--pale-blue);
@@ -107,7 +117,7 @@ body {
     color: var(--white);
 }
 .cards {
-    max-width: 48%;
+    max-width: 60%;
     flex: 1 1 230px;
 }
 .card__wrapper {
@@ -115,7 +125,7 @@ body {
     border-radius: 12px 12px 15px  15px;
     display: flex;
     align-items: end;
-    flex: 1 1 200px;
+    flex: 1 1 250px;
 }
 .card__widget {
     position: relative;
@@ -123,7 +133,7 @@ body {
     box-sizing: border-box;
     background-color: var(--dark-blue);
     border-radius: 12px;
-    margin-top: 34px;
+    margin-top: 50px;
 }
 .card__widget:hover {
     background-color: var(--blue-saturated);
@@ -138,11 +148,11 @@ body {
     cursor: not-allowed;
     height: 10px;
     width: 15px;
-    right: 25px;
+    right: 32px;
     top: 30px;
 }
 .card__widget, .profile__wrapper, .action__items {
-    padding: 25px;
+    padding: 32px;
 }
 .current__count {
     font-size: 50px;
@@ -157,7 +167,7 @@ body {
 /* cards background */
 [data-action-widget] {
     background-repeat: no-repeat;
-    background-size: 50px auto;
+    background-size: 80px auto;
     background-position: top -5px right 20px;
 }
 [data-action-widget="Work"] {
@@ -180,7 +190,7 @@ body {
     background-image: url(./images/icon-social.svg);
     background-color: var(--violet-social);
 }
-[data-action-widget="Self"] {
+[data-action-widget="Self-Care"] {
     background-image: url(./images/icon-self-care.svg);
     background-color: var(--soft-orange-self-care);
 }
@@ -229,7 +239,6 @@ body {
     }
     .current__count {
         margin: 0;
-        font-size: 25px;
     }
     .title {
         margin-bottom: 5px;

@@ -1,6 +1,9 @@
 'use strict';
 
-const getData = fetch('./data.json').then(res => res.json());
+const profile_name = 'Jeremy Robson';
+const data_url = './data.json';
+
+const getData = fetch(data_url).then(res => res.json());
 const profile = document.querySelector('.profile');
 let cards = document.querySelector('.cards');
 let data = '';
@@ -29,7 +32,7 @@ const actionDetailsCard = function(activity, tf) {
     if(tf === 'daily') timeframeText = 'Yesterday';
     else if(tf === 'weekly') timeframeText = 'Last Week';
     else if(tf === 'monthly') timeframeText = 'Last Month';
-    const template = `<div data-action-widget=${title} class="card card__wrapper">
+    const template = `<article data-action-widget=${title.split(' ').join('-')} class="card card__wrapper">
         <div class="card__widget">
             <div class="title">${title}</div>
             <div class="stats">
@@ -37,7 +40,7 @@ const actionDetailsCard = function(activity, tf) {
                 <div class="previous__count">${timeframeText} - ${timeframe.previous}hrs</div>
             </div>
         </div>
-    </div>`;
+    </article>`;
   return template;
 };
 
@@ -50,12 +53,13 @@ const actionListCard = function() {
 };
 
 const profileCard = function(){
-    let template = `<div class="profile__wrapper">
-        <img width='60px' height='60px' class='profile__pic' src="./images/image-jeremy.png" alt="image-jeremy">
-        <div class="profile__name">
-        <h5 class="caption">Report for</h5>
-        <h1 class="name">Jeremy Robson</h1>
-        </div>
+    let template = `<h2 class="sr-only">Profile card of ${profile_name}</h2>`;
+    template += `<div class="profile__wrapper">
+    <img width='74' height='74' class='profile__pic' src="./images/image-jeremy.png" alt="image-jeremy">
+    <div class="profile__name">
+    <h5 class="caption">Report for</h5>
+    <h1 class="name">${profile_name}</h1>
+    </div>
     </div>`;
     template += actionListCard();
     return template;
@@ -64,11 +68,13 @@ const profileCard = function(){
 // init cards
 const initCards = function(timeframe = 'daily') {
     cards.innerHTML = '';
+    let template = `<h2 class="sr-only">${timeframe} activity details of ${profile_name}</h2>`;
+    cards.insertAdjacentHTML('beforeend', template);
     data.forEach(element => {
         let content = actionDetailsCard(element, timeframe);
         cards.insertAdjacentHTML('beforeend', content);
-        activeTimeframe = timeframe;
     });
+    activeTimeframe = timeframe;
 }
 
 // state fetch data and render cards
